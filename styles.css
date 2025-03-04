@@ -1,0 +1,270 @@
+/*DevClub*/
+/*DevClub*/
+/*DevClub*/
+/*DevClub*/
+/*DevClub*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+:root {
+    --primaria: #4f46e5;
+    --secundaria: #4a2785;
+    --escuro: #0f172a;
+    --maisEscuro: #0a0f1c;
+    --claro: #e2e8f0;
+    --vidro: rgba(255, 255, 255, 0.1);
+}
+
+body {
+    background-color: var(--escuro);
+    color: var(--claro);
+}
+
+.navegacao {
+    position: fixed;
+    top: 0;
+    background: rgba(15, 23, 42, 0.6);
+    width: 100%;
+    z-index: 9999;
+    padding: 2.0rem;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 2rem;
+}
+
+.menu-link {
+    text-decoration: none;
+    color: var(--claro);
+    font-weight: 700;
+    position: relative;
+    padding: 0.5rem 0;
+}
+
+.menu-link::after {
+    content: '';
+    height: 2px;
+    width: 0%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(90deg, var(--primaria), var(--secundaria));
+    transition: width 0.5s ease;
+}
+
+.menu-link:hover::after {
+    width: 100%;
+}
+
+.cabecalho {
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.Foto-perfil {
+    width: 350px;
+    height: 330px;
+    box-shadow: 0 0 20px rgba(79, 70, 229, 0.3);
+    border-radius: 50%;
+    border: 4px solid var(--vidro);
+    object-fit: cover;
+    animation: flutuar 5s ease-in-out infinite;
+}
+
+h1 {
+    font-size: 3.9rem;
+    color: var(--primaria);
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    animation: flutuar 5s ease-in-out infinite;
+}
+
+.cabecalho-sub-titulo {
+    font-size: 1.1rem;
+    color: var(--claro);
+    text-align: center;
+    margin: 0;
+}
+
+.sobre {
+    margin-top: 5rem;
+    padding-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.sobre-titulo {
+    font-size: 2.5rem;
+    color: var(--claro);
+}
+
+.sobre-caixa {
+    padding: 3rem;
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 16px;
+    border: 1px solid var(--vidro);
+    backdrop-filter: blur(15px);
+    background: rgba(59, 41, 74, 0.5);
+}
+
+.sobre-paragrafo {
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+.projetos {
+    padding: 6rem 2rem;
+}
+
+.projetos-titulo {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    margin-top: 10rem;
+}
+
+.projetos-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 30px 30px rgba(79, 70, 229, 0.5);
+}
+
+
+.info-projetos {
+    color: #434073;
+    line-height: 1.25rem;
+    margin-bottom: 5px;
+}
+
+.caixa-texto-projetos {
+    padding: 1.5rem;
+}
+
+/* Flexbox para organizar os cards lado a lado */
+.projetos-caixa {
+    display: flex; /* Define o layout flexbox */
+    justify-content: center; /* Centraliza os itens horizontalmente */
+    gap: 20px; /* Espaçamento entre os cards */
+    flex-wrap: wrap; /* Permite que os cards quebrem para novas linhas em telas menores */
+    margin: 0 auto; /* Centraliza o contêiner */
+    max-width: 1200px; /* Define uma largura máxima para o contêiner */
+
+}  
+.projetos-card {
+    flex: 1 1 calc(33.33% - 20px); /* Define que cada card ocupa 1/3 da linha */
+    max-width: 400px; /* Define um tamanho máximo para os cards */
+    min-width: 250px; /* Evita que os cards fiquem pequenos demais */
+    background: rgba(50, 57, 97, 0.5); /* Fundo estilizado */
+    border-radius: 16px;
+    border: 1px solid var(--vidro);
+    text-align: center;
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+
+.projetos-imagem { 
+    width: 100%; 
+    height: auto;
+    border-radius: 16px 16px 0 0;
+}
+
+.paragrafo-projeto {
+    color: rgba(226, 232, 240, 0.8);
+    line-height: 1.25rem;
+}
+
+.contatos-titulo {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    margin-top: 10rem;
+}
+
+.formulario-contato {
+    max-width: 600px;
+    margin: 0 auto;
+    background: rgba(50, 57, 97, 0.5); /* Fundo estilizado */
+    backdrop-filter: blur(5px);
+    border-radius: 16px;
+    border: 1px solid var(--vidro);
+    padding: 2rem;
+}
+
+.campo-form {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(60deg, var(--maisEscuro), var(--secundaria));
+    border-radius: 8px;
+    color: var(--claro);
+    border: 1px solid var(--vidro);
+    outline: none;   
+}
+
+.campo-form:focus {
+    border-color: var(--secundaria);
+    box-shadow: 0 0 10px rgba(71, 54, 119, 0.1);
+}
+
+.grupo-form {
+    margin-bottom: 1.5rem;
+}
+
+.botao-form {
+    color: var(--claro);
+    background: linear-gradient(60deg, var(--maisEscuro), var(--secundaria));
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.botao-form:hover {
+    transform: translateY(-4px);
+    box-shadow: 0px 4px 10px rgba(55, 46, 175, 0.6);
+}
+
+.particulas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.5;
+    background: 
+    radial-gradient(circle at 10% 20%, var(--primaria) 0%,transparent 20% ),
+    radial-gradient(circle at 90% 80%, var(--secundaria) 0%, transparent 20%),
+    var(--maisEscuro);
+}
+
+@keyframes flutuar {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
