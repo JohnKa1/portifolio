@@ -8,9 +8,6 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0); /* Torna o destaque transparente */
-    -webkit-user-select: none; /* Impede a seleção de texto, se necessário */
 }
 
 html {
