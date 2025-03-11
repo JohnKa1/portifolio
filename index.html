@@ -1,120 +1,67 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>ExpertX | Portfólio</title>
+    <meta name="description" content="Portfólio de desenvolvedor web apresentando projetos e contato.">
+    <title>JohnKa1 | Portfólio</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header>
+        <nav>
+            <h1>JohnKa1</h1>
+            <ul>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#projetos">Projetos</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <div class="particulas"></div>
+    <section id="sobre">
+        <h2>Sobre Mim</h2>
+        <p>Sou um desenvolvedor back-end apaixonado por tecnologia e programação. Este é o meu portfólio!</p>
+    </section>
 
-
-    <nav class="navegacao">
-        <ul class="menu">
-            <li>
-                <a href="#inicio" class="menu-link">Início</a>
-            </li>
-            
-            <li>
-                <a href="#sobre" class="menu-link">Sobre</a>
-            </li>
-            
-            <li>
-                <a href="#projetos" class="menu-link">Projetos</a>
-            </li>
-            
-            <li>
-                <a href="#contatos" class="menu-link">Contato</a>
-            </li>
-        </ul>
-    </nav>
-    
-    <main id="inicio" class="cabecalho">
-        <div>
-            <img src="./img/myimg.png" alt="Minha foto" class="Foto-perfil">
-            <h1>John Cauan</h1>
-            <p class="cabecalho-sub-titulo">Desenvolvedor Back-End & Analista de Redes</p>
+    <section id="projetos">
+        <h2>Projetos</h2>
+        <div class="projeto">
+            <img src="projeto1.jpg" alt="Imagem do projeto 1">
+            <h3>Projeto 1</h3>
+            <p>Descrição do projeto 1.</p>
         </div>
-    </main>
-
-    <section id="sobre" class="sobre">
-        <h2 class="sobre-titulo">Sobre Mim</h2>
-        <div class="sobre-caixa">
-            <p class="sobre-paragrafo">
-                Olá, meu nome é John Cauan. Sou um Desenvolvedor Back-End em formação e Analista de Redes com 5 anos de experiência em telecomunicações. Atualmente estou ampliando minhas competências e aprofundando meu conhecimento técnico.
-
-                Tenho formação em cursos especializados, incluindo Análise de Redes, IPv6, Segurança da Informação entre outros... Estou sempre em busca de aprimorar minhas habilidades técnicas e interpessoais para oferecer soluções inovadoras e de alta qualidade no universo da tecnologia, seja desenvolvendo novos sistemas ou garantindo a manutenção eficiente de infraestruturas já existentes.            </p>
+        <div class="projeto">
+            <img src="projeto2.jpg" alt="Imagem do projeto 2">
+            <h3>Projeto 2</h3>
+            <p>Descrição do projeto 2.</p>
         </div>
     </section>
 
-    <section id="projetos" class="projetos">
-        <h2 class="projetos-titulo">Meus Projetos</h2>
-        <div class="projetos-caixa">
-            <!-- Card 1 -->
-            <div class="projetos-card">
-                <img src="./img/Car1.png" alt="Car1" class="projetos-imagem">
-                <div class="caixa-texto-projetos">
-                    <h3 class="info-projetos">Loja de carros</h3>
-                    <p class="paragrafo-projeto">Loja de Carros com design responsivo</p>
-                </div>
-            </div>
-    
-            <!-- Card 2 -->
-            <div class="projetos-card">
-                <img src="./img/avia.jpeg" alt="Projeto 1" class="projetos-imagem">
-                <div class="caixa-texto-projetos">
-                    <h3 class="info-projetos">Página de viagens</h3>
-                    <p class="paragrafo-projeto">Página de viagens para destinos atraentes e desejados do mundo</p>
-                </div>
-            </div>
-    
-            <!-- Card 3 -->
-            <div class="projetos-card">
-                <img src="./img/Xbox.png" alt="Projeto 1" class="projetos-imagem">
-                <div class="caixa-texto-projetos">
-                    <h3 class="info-projetos">Microsoft</h3>
-                    <p class="paragrafo-projeto">Página da Microsoft criada para demonstrar conhecimentos</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-
-    <section id="contatos" class="contatos">
-        <h2 class="contatos-titulo">Entre em contato</h2>
-        <form class="formulario-contato" id="formulario" onsubmit="enviarWhats(event)">
-            <div class="grupo-form">
-                <input type="text" placeholder="Nome" class="campo-form" id="nome">
-            </div>
-            <div class="grupo-form">
-                <textarea class="campo-form" placeholder="Digite sua Mensagem" rows="6" id="mensagem"></textarea>
-            </div>
+    <section id="contato">
+        <h2>Contato</h2>
+        <form id="form-contato">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required>
             
-            <button type="submit" class="botao-form">Enviar Whatsapp</button>
-
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="mensagem">Mensagem:</label>
+            <textarea id="mensagem" name="mensagem" required></textarea>
+            
+            <button type="submit" onclick="enviarWhats(event)">Enviar via WhatsApp</button>
         </form>
     </section>
 
     <script>
-
         function enviarWhats(event) {
-            const nome = document.getElementById('nome').value;
-        const mensagem = document.getElementById('mensagem').value;
-        const telefone = '5571989021201';
-
-        const texto = `Olá! me chamo ${nome}, ${mensagem}`
-        const msgFormatada = encodeURIComponent(texto)
-
-        const url = `https://wa.me/${telefone}?text=${msgFormatada}`
-
-        window.open(url, '_blank')
+            event.preventDefault(); // Previne o envio do formulário padrão
+            let nome = document.getElementById("nome").value;
+            let mensagem = document.getElementById("mensagem").value;
+            let url = `https://api.whatsapp.com/send?text=Nome: ${nome}%0A${mensagem}`;
+            window.open(url, '_blank');
         }
-
-        
     </script>
-
-
 </body>
 </html>
