@@ -14,10 +14,6 @@ html {
     scroll-behavior: smooth;
 }
 
-a, button {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0); /* Remove o efeito azul de clique */
-    -webkit-user-select: none; /* Impede seleção de texto */
-
 :root {
     --primaria: #4f46e5;
     --secundaria: #4a2785;
