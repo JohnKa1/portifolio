@@ -3,166 +3,357 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>John Cauan | Portfólio</title>
+  <meta name="theme-color" content="#050b16">
+  <meta name="description" content="John Cauan — Telecomunicações, redes e infraestrutura. Experiência em operações ISP, fibra óptica e evolução em engenharia de redes.">
+  <title>John Cauan | Telecomunicações & Engenharia de Redes</title>
   <style>
     :root {
-      --bg-color: #020617;
-      --card-bg: rgba(255, 255, 255, 0.03);
-      --border-color: rgba(255, 255, 255, 0.08);
-      --primary: #008fb3;
-      --secondary: #2ecc71;
-      --text-main: #ffffff;
-      --text-muted: #94a3b8;
+      --bg: #050b16;
+      --surface: #0b1525;
+      --surface-2: #0e1c2e;
+      --line: rgba(137, 180, 211, .15);
+      --cyan: #24c8ed;
+      --green: #36d98a;
+      --text: #edf6ff;
+      --muted: #9aadc2;
+      --max: 1160px;
     }
-
     * { box-sizing: border-box; margin: 0; padding: 0; }
-
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
     body {
-      font-family: 'Segoe UI', Roboto, sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-main);
-      line-height: 1.6;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 100vh;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(ellipse at 78% 8%, rgba(0, 148, 190, .13), transparent 34rem),
+        radial-gradient(ellipse at 5% 45%, rgba(27, 169, 115, .07), transparent 30rem),
+        var(--bg);
+      color: var(--text); line-height: 1.65; overflow-x: hidden;
     }
-
-    .container {
-      width: 100%;
-      max-width: 800px;
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    .wrap { width: min(var(--max), calc(100% - 44px)); margin-inline: auto; }
+    .topbar {
+      position: sticky; top: 0; z-index: 20; backdrop-filter: blur(18px);
+      background: rgba(5, 11, 22, .82); border-bottom: 1px solid var(--line);
     }
-
-    header {
-      text-align: center;
-      padding: 40px 0;
+    .nav { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { font-weight: 800; letter-spacing: .04em; font-size: .98rem; }
+    .brand span { color: var(--cyan); }
+    .nav-links { display: flex; align-items: center; gap: 26px; color: var(--muted); font-size: .88rem; }
+    .nav-links a:hover { color: var(--cyan); }
+    .nav-cta, .button {
+      display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+      border: 1px solid rgba(36, 200, 237, .38); border-radius: 10px;
+      padding: 11px 17px; color: var(--text); font-weight: 700; font-size: .9rem;
+      background: rgba(36, 200, 237, .09); transition: .2s ease;
     }
-
-    .profile-img {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      border: 4px solid var(--primary);
-      object-fit: cover;
-      margin-bottom: 20px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    .nav-cta:hover, .button:hover { transform: translateY(-2px); border-color: var(--cyan); background: rgba(36,200,237,.16); }
+    .hero { min-height: 650px; display: grid; grid-template-columns: 1.15fr .85fr; align-items: center; gap: 55px; padding-block: 86px 76px; position: relative; }
+    .eyebrow { color: var(--green); text-transform: uppercase; letter-spacing: .18em; font-size: .76rem; font-weight: 800; display: flex; align-items: center; gap: 10px; }
+    .eyebrow::before { content: ""; width: 27px; height: 1px; background: var(--green); }
+    h1 { font-size: clamp(2.7rem, 6vw, 5.25rem); line-height: 1.02; letter-spacing: -.055em; margin: 22px 0 18px; }
+    h1 span { color: var(--cyan); }
+    .hero-lead { max-width: 650px; color: #b5c5d7; font-size: clamp(1.04rem, 1.6vw, 1.2rem); }
+    .hero-lead strong { color: var(--text); font-weight: 650; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+    .button.primary { background: linear-gradient(110deg, #087da3, #087e62); border: 0; box-shadow: 0 12px 35px rgba(0, 160, 170, .17); }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 34px; color: var(--muted); font-size: .85rem; }
+    .hero-meta span { display: inline-flex; align-items: center; gap: 8px; }
+    .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); box-shadow: 0 0 12px var(--green); }
+    .visual { min-height: 400px; position: relative; display: grid; place-items: center; }
+    .orbit { width: min(390px, 100%); aspect-ratio: 1; border: 1px solid rgba(36,200,237,.22); border-radius: 50%; position: relative; display: grid; place-items: center; }
+    .orbit::before, .orbit::after { content: ""; position: absolute; inset: 10%; border: 1px dashed rgba(54,217,138,.24); border-radius: 50%; animation: spin 32s linear infinite; }
+    .orbit::after { inset: 22%; border-style: solid; border-color: rgba(36,200,237,.16); animation-direction: reverse; animation-duration: 24s; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .profile {
+      width: 166px; height: 166px; border-radius: 50%; object-fit: cover;
+      border: 3px solid var(--cyan); padding: 5px; background: var(--surface);
+      box-shadow: 0 0 55px rgba(36,200,237,.2), 0 0 100px rgba(54,217,138,.08);
+      position: relative; z-index: 2;
     }
-
-    h1 {
-      font-size: 2.5rem;
-      color: var(--primary);
-      margin-bottom: 5px;
+    .node { position: absolute; z-index: 3; background: #0d2031; border: 1px solid rgba(36,200,237,.4); border-radius: 12px; padding: 10px 13px; color: #c9e7f4; font-size: .78rem; box-shadow: 0 12px 30px rgba(0,0,0,.3); }
+    .node b { color: var(--cyan); display: block; font-size: .7rem; letter-spacing: .1em; }
+    .node.n1 { top: 12%; left: -2%; } .node.n2 { right: -4%; top: 28%; }
+    .node.n3 { bottom: 12%; left: 4%; } .node.n4 { right: 0; bottom: 13%; }
+    .signal { position: absolute; width: 9px; height: 9px; border-radius: 50%; background: var(--green); box-shadow: 0 0 18px var(--green); }
+    .signal.s1 { top: 17%; right: 22%; } .signal.s2 { bottom: 24%; left: 18%; }
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: -15px; position: relative; z-index: 2; }
+    .stat { padding: 21px 22px; background: linear-gradient(145deg, rgba(14,28,46,.94), rgba(8,18,31,.9)); border: 1px solid var(--line); border-radius: 15px; }
+    .stat strong { display: block; color: var(--cyan); font-size: 1.75rem; line-height: 1.2; }
+    .stat span { color: var(--muted); font-size: .82rem; }
+    section.content { padding-block: 105px 20px; }
+    .section-head { max-width: 720px; margin-bottom: 36px; }
+    .kicker { color: var(--green); font-size: .75rem; text-transform: uppercase; letter-spacing: .17em; font-weight: 800; }
+    h2 { font-size: clamp(1.9rem, 4vw, 2.8rem); line-height: 1.13; letter-spacing: -.035em; margin-top: 10px; }
+    .section-intro { color: var(--muted); margin-top: 13px; max-width: 680px; }
+    .about-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 18px; }
+    .panel { background: linear-gradient(145deg, rgba(13,27,45,.92), rgba(8,17,30,.92)); border: 1px solid var(--line); border-radius: 18px; padding: 28px; }
+    .panel p { color: #afc0d2; }
+    .panel p + p { margin-top: 14px; }
+    .focus-list { display: grid; gap: 13px; }
+    .focus-item { display: flex; align-items: flex-start; gap: 13px; }
+    .focus-icon { flex: 0 0 37px; height: 37px; display: grid; place-items: center; border-radius: 10px; color: var(--cyan); background: rgba(36,200,237,.1); border: 1px solid rgba(36,200,237,.17); font-weight: 800; }
+    .focus-item b { display: block; font-size: .95rem; }
+    .focus-item small { color: var(--muted); display: block; font-size: .83rem; }
+    .timeline { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .job { position: relative; padding: 25px; background: var(--surface); border: 1px solid var(--line); border-radius: 16px; }
+    .job::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--green); position: absolute; top: 30px; right: 25px; box-shadow: 0 0 12px var(--green); }
+    .job .date { color: var(--cyan); font-size: .76rem; font-weight: 800; letter-spacing: .08em; }
+    .job h3 { margin: 10px 0 4px; font-size: 1.14rem; }
+    .job .role { color: var(--green); font-size: .88rem; font-weight: 650; margin-bottom: 14px; }
+    .job p { color: var(--muted); font-size: .9rem; }
+    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .skill-card { padding: 24px; border: 1px solid var(--line); background: var(--surface); border-radius: 16px; }
+    .skill-card .symbol { color: var(--cyan); font-size: 1.35rem; margin-bottom: 12px; }
+    .skill-card h3 { font-size: 1.03rem; margin-bottom: 12px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip { font-size: .77rem; color: #b9d5e4; padding: 6px 10px; border: 1px solid rgba(36,200,237,.18); background: rgba(36,200,237,.06); border-radius: 7px; }
+    .project { display: grid; grid-template-columns: .9fr 1.1fr; overflow: hidden; padding: 0; }
+    .project-art { min-height: 300px; display: grid; place-items: center; padding: 30px; background: radial-gradient(circle at 50% 45%, rgba(36,200,237,.2), transparent 55%), linear-gradient(145deg, #0d2638, #07111f); border-right: 1px solid var(--line); }
+    .mock-window { width: min(100%, 360px); padding: 15px; background: rgba(4,11,21,.85); border: 1px solid rgba(36,200,237,.3); border-radius: 12px; box-shadow: 0 22px 55px rgba(0,0,0,.35); }
+    .mock-top { display: flex; gap: 5px; padding-bottom: 13px; border-bottom: 1px solid var(--line); }
+    .mock-top i { width: 7px; height: 7px; border-radius: 50%; background: #3c6b7c; }
+    .mock-body { padding: 18px 5px 5px; }
+    .mock-title { color: var(--cyan); font-weight: 800; font-size: .85rem; margin-bottom: 13px; }
+    .mock-line { height: 8px; border-radius: 5px; background: #1a3448; margin: 9px 0; }
+    .mock-line.short { width: 58%; }
+    .mock-action { height: 32px; margin-top: 16px; border-radius: 7px; background: linear-gradient(90deg, #087e68, #087da3); }
+    .project-copy { padding: 34px; }
+    .project-copy h3 { font-size: 1.45rem; margin: 8px 0 12px; }
+    .project-copy p { color: var(--muted); }
+    .project-copy .chips { margin: 19px 0 23px; }
+    .education-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .education-grid h3 { margin-bottom: 8px; }
+    .education-grid p, .education-grid li { color: var(--muted); font-size: .9rem; }
+    .education-grid ul { padding-left: 18px; margin-top: 10px; }
+    .direction { border: 1px solid rgba(54,217,138,.22); background: linear-gradient(110deg, rgba(10,47,49,.62), rgba(9,25,41,.9)); border-radius: 18px; padding: 32px; display: flex; align-items: center; justify-content: space-between; gap: 30px; }
+    .direction p { color: #b5c9d4; max-width: 700px; margin-top: 10px; }
+    footer { border-top: 1px solid var(--line); margin-top: 100px; padding: 28px 0 38px; color: var(--muted); font-size: .85rem; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .65s ease, transform .65s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    @media (max-width: 850px) {
+      .hero { grid-template-columns: 1fr; gap: 20px; padding-top: 70px; }
+      .visual { min-height: 350px; }
+      .stats { grid-template-columns: repeat(2, 1fr); margin-top: 0; }
+      .timeline { grid-template-columns: 1fr; }
+      .about-grid, .project { grid-template-columns: 1fr; }
+      .project-art { border-right: 0; border-bottom: 1px solid var(--line); }
     }
-
-    p.subtitle {
-      font-size: 1.2rem;
-      color: var(--secondary);
-      font-weight: 600;
+    @media (max-width: 620px) {
+      .wrap { width: min(100% - 30px, var(--max)); }
+      .nav { min-height: 64px; }
+      .nav-links { display: none; }
+      .hero { min-height: auto; padding-block: 65px 40px; }
+      .visual { min-height: 300px; }
+      .orbit { width: 285px; }
+      .profile { width: 125px; height: 125px; }
+      .node { font-size: .68rem; padding: 8px 9px; }
+      .node.n1 { left: -2%; } .node.n2 { right: -2%; }
+      .stats { gap: 9px; }
+      .stat { padding: 16px; }
+      .stat strong { font-size: 1.45rem; }
+      section.content { padding-top: 75px; }
+      .panel, .project-copy { padding: 22px; }
+      .skills-grid, .education-grid { grid-template-columns: 1fr; }
+      .direction { align-items: flex-start; flex-direction: column; padding: 25px; }
+      footer { margin-top: 70px; }
     }
-
-    section {
-      background: var(--card-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 20px;
-      padding: 30px;
-      margin-bottom: 25px;
-      backdrop-filter: blur(10px);
-    }
-
-    h2 {
-      color: var(--primary);
-      font-size: 1.5rem;
-      margin-bottom: 15px;
-      border-bottom: 2px solid var(--border-color);
-      padding-bottom: 8px;
-    }
-
-    p {
-      color: var(--text-muted);
-      font-size: 1.1rem;
-      margin-bottom: 15px;
-    }
-
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 15px;
-    }
-
-    .tag {
-      background: rgba(0, 143, 179, 0.15);
-      color: var(--primary);
-      padding: 6px 14px;
-      border-radius: 20px;
-      font-size: 0.9rem;
-      font-weight: bold;
-      border: 1px solid rgba(0, 143, 179, 0.3);
-    }
-
-    .btn {
-      display: inline-block;
-      background: linear-gradient(135deg, #1db954 0%, #0056b3 100%);
-      color: white;
-      padding: 14px 28px;
-      border-radius: 12px;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1.1rem;
-      margin-top: 10px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.4);
-      transition: transform 0.2s;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-    }
-
-    footer {
-      text-align: center;
-      color: var(--text-muted);
-      padding: 20px 0;
-      font-size: 0.9rem;
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
+      .reveal { opacity: 1; transform: none; }
     }
   </style>
 </head>
 <body>
+  <div class="topbar">
+    <nav class="nav wrap" aria-label="Navegação principal">
+      <a class="brand" href="#inicio">JOHN<span>CAUAN</span></a>
+      <div class="nav-links">
+        <a href="#sobre">Sobre</a><a href="#trajetoria">Trajetória</a><a href="#competencias">Competências</a><a href="#projetos">Projetos</a><a href="#formacao">Formação</a>
+      </div>
+      <a class="nav-cta" href="https://github.com/JohnKa1" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+    </nav>
+  </div>
 
-  <div class="container">
-    <header>
-      <!-- DICA: Substitua o link abaixo pela URL da sua foto real -->
-      <img src="perfil.jpeg" alt="John Cauan" class="profile-img" id="fotoPerfil">
-      <h1>John Cauan</h1>
-      <p class="subtitle">Estudante de Redes de Computadores & Telecomunicações</p>
+  <main>
+    <header class="hero wrap" id="inicio">
+      <div>
+        <div class="eyebrow">Telecomunicações · Redes · Infraestrutura</div>
+        <h1>Conectando pessoas,<br><span>redes e soluções.</span></h1>
+        <p class="hero-lead">
+          Sou <strong>John Cauan</strong>, profissional de telecomunicações com experiência acumulada em operações de provedores, infraestrutura e redes de fibra óptica. Atualmente atuo na Gironet e curso <strong>Redes de Computadores</strong>, direcionando minha evolução para Engenharia de Redes, Core ISP e Infraestrutura.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#trajetoria">Conheça minha trajetória ↓</a>
+          <a class="button" href="https://github.com/JohnKa1" target="_blank" rel="noopener noreferrer">Explorar projetos ↗</a>
+        </div>
+        <div class="hero-meta">
+          <span><i class="dot"></i> Atuação atual: Gironet</span>
+          <span>⌖ São Vicente · SP</span>
+        </div>
+      </div>
+      <div class="visual" aria-label="Representação visual de uma topologia de rede">
+        <div class="orbit">
+          <img class="profile" src="perfil.jpeg" alt="Foto de John Cauan" onerror="this.style.display='none'">
+          <div class="node n1"><b>ACCESS</b>FTTx / GPON</div>
+          <div class="node n2"><b>NETWORK</b>LAN / WAN</div>
+          <div class="node n3"><b>PROTOCOLS</b>TCP/IP · IPv6</div>
+          <div class="node n4"><b>ISP</b>Infrastructure</div>
+          <i class="signal s1"></i><i class="signal s2"></i>
+        </div>
+      </div>
     </header>
 
-    <section>
-      <h2>Sobre Mim</h2>
-      <p>
-        Estudante de Redes de Computadores com foco em Telecomunicações e sólido background em desenvolvimento back-end. Focado em entender problemas reais, pesquisar soluções eficientes e buscar a melhoria contínua em infraestrutura, redes e sistemas.
-      </p>
-      <div class="tags">
-        <span class="tag">Redes & Telecom</span>
-        <span class="tag">Infraestrutura</span>
-        <span class="tag">Automação</span>
-        <span class="tag">Resolução de Problemas</span>
+    <div class="stats wrap reveal">
+      <div class="stat"><strong>7 anos</strong><span>Experiência acumulada em telecom</span></div>
+      <div class="stat"><strong>ISP</strong><span>Vivência em provedores de internet</span></div>
+      <div class="stat"><strong>FTTx</strong><span>Infraestrutura e redes ópticas</span></div>
+      <div class="stat"><strong>Nível II</strong><span>Atuação técnica atual</span></div>
+    </div>
+
+    <section class="content wrap" id="sobre">
+      <div class="section-head reveal">
+        <div class="kicker">Perfil profissional</div>
+        <h2>Experiência prática.<br>Aprendizado contínuo.</h2>
+        <p class="section-intro">Minha trajetória foi construída em diferentes funções e ambientes de telecomunicações, combinando atividades de campo, planejamento, coordenação e suporte técnico.</p>
+      </div>
+      <div class="about-grid">
+        <article class="panel reveal">
+          <p>Ao longo da minha experiência profissional, participei de atividades relacionadas à implantação e manutenção de redes de fibra óptica, análise de infraestrutura, suporte técnico e acompanhamento de equipes.</p>
+          <p>Atualmente, busco aprofundar minha base técnica em redes e infraestrutura, conectando a vivência operacional aos fundamentos de arquitetura, protocolos e operação de provedores.</p>
+          <p>Também desenvolvo soluções web e pequenas automações voltadas à melhoria de processos, aproximando tecnologia das necessidades reais do ambiente ISP.</p>
+        </article>
+        <aside class="panel reveal">
+          <div class="focus-list">
+            <div class="focus-item"><span class="focus-icon">01</span><div><b>Telecomunicações</b><small>Experiência em campo, implantação e operação</small></div></div>
+            <div class="focus-item"><span class="focus-icon">02</span><div><b>Infraestrutura de redes</b><small>Fibra óptica, equipamentos e conectividade</small></div></div>
+            <div class="focus-item"><span class="focus-icon">03</span><div><b>Melhoria de processos</b><small>Soluções práticas e automação de tarefas</small></div></div>
+            <div class="focus-item"><span class="focus-icon">04</span><div><b>Evolução técnica</b><small>Engenharia de Redes e Core ISP</small></div></div>
+          </div>
+        </aside>
       </div>
     </section>
 
-    <section>
-      <h2>Projeto em Destaque</h2>
-      <p><strong>Gerenciador de Pagamento para Provedor</strong></p>
-      <p>
-        Solução web desenvolvida para otimizar o atendimento de suporte e eliminar erros em pagamentos via Pix Copia e Cola e boletos por parte de clientes em provedores de internet. Conta com carregamento dinâmico de QR Code e cópia rápida para a área de transferência.
-      </p>
-      <a href="https://github.com/JohnKa1/pagamento-provedor" target="_blank" class="btn">Ver Repositório do Projeto</a>
+    <section class="content wrap" id="trajetoria">
+      <div class="section-head reveal">
+        <div class="kicker">Experiência profissional</div>
+        <h2>Uma trajetória construída na prática.</h2>
+        <p class="section-intro">Experiências em diferentes empresas e responsabilidades, com atuação em redes de telecomunicações e provedores de internet.</p>
+      </div>
+      <div class="timeline">
+        <article class="job reveal">
+          <div class="date">OUT/2020 — JAN/2023</div>
+          <h3>JJ Telecomunicações</h3>
+          <div class="role">Técnico de Redes</div>
+          <p>Mapeamento de infraestrutura, planejamento e lançamento de fibra óptica, suporte técnico e resolução de falhas de rede.</p>
+        </article>
+        <article class="job reveal">
+          <div class="date">JAN/2023 — FEV/2025</div>
+          <h3>WST Telecomunicações</h3>
+          <div class="role">Técnico Encarregado em Redes</div>
+          <p>Planejamento e execução de projetos FTTH, supervisão de processos, coordenação de equipes e manutenção de redes.</p>
+        </article>
+        <article class="job reveal">
+          <div class="date">OUT/2025 — ATUAL</div>
+          <h3>Gironet Provedor</h3>
+          <div class="role">Técnico Nível II</div>
+          <p>Configuração de equipamentos, melhoria de redes domésticas e empresariais, manutenção de fibra óptica, atendimento e iniciativas de melhoria operacional.</p>
+        </article>
+      </div>
     </section>
-  </div>
+
+    <section class="content wrap" id="competencias">
+      <div class="section-head reveal">
+        <div class="kicker">Base técnica</div>
+        <h2>Conhecimentos e áreas de atuação.</h2>
+        <p class="section-intro">Competências relacionadas à experiência profissional e à formação em Redes de Computadores.</p>
+      </div>
+      <div class="skills-grid">
+        <article class="skill-card reveal"><div class="symbol">⌁</div><h3>Redes & conectividade</h3><div class="chips"><span class="chip">TCP/IP</span><span class="chip">LAN</span><span class="chip">WAN</span><span class="chip">IPv4</span><span class="chip">IPv6</span><span class="chip">PPPoE</span></div></article>
+        <article class="skill-card reveal"><div class="symbol">◎</div><h3>Fibra óptica</h3><div class="chips"><span class="chip">FTTx</span><span class="chip">FTTH</span><span class="chip">GPON</span><span class="chip">Implantação</span><span class="chip">Manutenção</span></div></article>
+        <article class="skill-card reveal"><div class="symbol">▣</div><h3>Equipamentos</h3><div class="chips"><span class="chip">Huawei</span><span class="chip">FiberHome</span><span class="chip">Intelbras</span><span class="chip">Roteadores</span><span class="chip">Switches</span><span class="chip">ONU</span></div></article>
+        <article class="skill-card reveal"><div class="symbol">⌘</div><h3>Suporte & operação</h3><div class="chips"><span class="chip">Diagnóstico</span><span class="chip">Suporte técnico</span><span class="chip">Manutenção</span><span class="chip">Atendimento</span></div></article>
+        <article class="skill-card reveal"><div class="symbol">⌨</div><h3>Desenvolvimento</h3><div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span><span class="chip">C# / .NET</span></div></article>
+        <article class="skill-card reveal"><div class="symbol">↗</div><h3>Áreas de aprofundamento</h3><div class="chips"><span class="chip">Engenharia de Redes</span><span class="chip">Core ISP</span><span class="chip">Infraestrutura</span><span class="chip">Automação</span></div></article>
+      </div>
+    </section>
+
+    <section class="content wrap" id="projetos">
+      <div class="section-head reveal">
+        <div class="kicker">Projetos aplicados</div>
+        <h2>Tecnologia para resolver problemas reais.</h2>
+        <p class="section-intro">Projetos pessoais que conectam desenvolvimento, automação e necessidades observadas no contexto de provedores.</p>
+      </div>
+      <article class="panel project reveal">
+        <div class="project-art" aria-hidden="true">
+          <div class="mock-window"><div class="mock-top"><i></i><i></i><i></i></div><div class="mock-body"><div class="mock-title">GERENCIADOR DE COBRANÇA</div><div class="mock-line"></div><div class="mock-line short"></div><div class="mock-line"></div><div class="mock-action"></div></div></div>
+        </div>
+        <div class="project-copy">
+          <div class="kicker">Projeto em destaque · ISP</div>
+          <h3>Gerenciador de Pagamento para Provedor</h3>
+          <p>Solução web com uma interface para gerar links de cobrança e outra para o cliente consultar as informações de pagamento, visualizar QR Code Pix e copiar os dados disponibilizados.</p>
+          <div class="chips"><span class="chip">HTML5</span><span class="chip">CSS3</span><span class="chip">JavaScript</span><span class="chip">QR Code</span></div>
+          <a class="button primary" href="https://github.com/JohnKa1/pagamento-provedor" target="_blank" rel="noopener noreferrer">Ver repositório no GitHub ↗</a>
+        </div>
+      </article>
+    </section>
+
+    <section class="content wrap" id="formacao">
+      <div class="section-head reveal">
+        <div class="kicker">Formação e capacitação</div>
+        <h2>Conhecimento em construção contínua.</h2>
+      </div>
+      <div class="education-grid">
+        <article class="panel reveal">
+          <h3>Graduação</h3>
+          <p><strong style="color:var(--text)">Tecnologia em Redes de Computadores</strong><br>Cruzeiro do Sul · Em andamento</p>
+          <p style="margin-top:14px"><strong style="color:var(--text)">Desenvolvimento de Sistemas (Back-End)</strong><br>Cruzeiro do Sul · Curso trancado</p>
+        </article>
+        <article class="panel reveal">
+          <h3>Formação complementar</h3>
+          <ul>
+            <li>Analista de Redes — Fórum Telecom (2024)</li>
+            <li>IPv6 Total — Fórum Telecom (2024)</li>
+            <li>Instalação Blindada — Fiber School (2026)</li>
+            <li>Fibra Óptica do Zero — Fiber School (2025)</li>
+            <li>Segurança em Tecnologia da Informação — Fundação Bradesco (2024)</li>
+            <li>Programação em C# / .NET — freeCodeCamp (2025)</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="content wrap reveal">
+      <div class="direction">
+        <div>
+          <div class="kicker">Próximo capítulo</div>
+          <h2>Em direção à Engenharia de Redes.</h2>
+          <p>Meu objetivo é aprofundar conhecimentos em arquitetura e operação de redes, infraestrutura de provedores e tecnologias de Core ISP, ampliando minha capacidade de atuar em ambientes de maior complexidade técnica.</p>
+        </div>
+        <a class="button primary" href="https://github.com/JohnKa1" target="_blank" rel="noopener noreferrer">Acompanhar no GitHub ↗</a>
+      </div>
+    </section>
+  </main>
 
   <footer>
-    <p>&copy; 2026 John Cauan. Todos os direitos reservados.</p>
+    <div class="footer-inner wrap">
+      <span>© 2026 John Cauan. Portfólio profissional.</span>
+      <span>Telecomunicações · Redes · Infraestrutura</span>
+    </div>
   </footer>
 
+  <script>
+    // Revela os blocos conforme entram na área visível, sem dependências externas.
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
+  </script>
 </body>
 </html>
