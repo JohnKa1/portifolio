@@ -1,120 +1,168 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>ExpertX | Portfólio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>John Cauan | Portfólio</title>
+  <style>
+    :root {
+      --bg-color: #020617;
+      --card-bg: rgba(255, 255, 255, 0.03);
+      --border-color: rgba(255, 255, 255, 0.08);
+      --primary: #008fb3;
+      --secondary: #2ecc71;
+      --text-main: #ffffff;
+      --text-muted: #94a3b8;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 800px;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 0;
+    }
+
+    .profile-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 4px solid var(--primary);
+      object-fit: cover;
+      margin-bottom: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 5px;
+    }
+
+    p.subtitle {
+      font-size: 1.2rem;
+      color: var(--secondary);
+      font-weight: 600;
+    }
+
+    section {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 30px;
+      margin-bottom: 25px;
+      backdrop-filter: blur(10px);
+    }
+
+    h2 {
+      color: var(--primary);
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 8px;
+    }
+
+    p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .tag {
+      background: rgba(0, 143, 179, 0.15);
+      color: var(--primary);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: bold;
+      border: 1px solid rgba(0, 143, 179, 0.3);
+    }
+
+    .btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #1db954 0%, #0056b3 100%);
+      color: white;
+      padding: 14px 28px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+      margin-top: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+      transition: transform 0.2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    footer {
+      text-align: center;
+      color: var(--text-muted);
+      padding: 20px 0;
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
 <body>
 
-    <div class="particulas"></div>
+  <div class="container">
+    <header>
+      <!-- DICA: Substitua o link abaixo pela URL da sua foto real -->
+      <img src="img/sua-foto.jpg" alt="John Cauan" class="profile-img" id="fotoPerfil">
+      <h1>John Cauan</h1>
+      <p class="subtitle">Estudante de Redes de Computadores & Telecomunicações</p>
+    </header>
 
-
-    <nav class="navegacao">
-        <ul class="menu">
-            <li>
-                <a href="#inicio" class="menu-link">Início</a>
-            </li>
-            
-            <li>
-                <a href="#sobre" class="menu-link">Sobre</a>
-            </li>
-            
-            <li>
-                <a href="#projetos" class="menu-link">Projetos</a>
-            </li>
-            
-            <li>
-                <a href="#contatos" class="menu-link">Contato</a>
-            </li>
-        </ul>
-    </nav>
-    
-    <main id="inicio" class="cabecalho">
-        <div>
-            <img src="./img/myimg.png" alt="Minha foto" class="Foto-perfil">
-            <h1>John Cauan</h1>
-            <p class="cabecalho-sub-titulo">Desenvolvedor Back-End & Analista de Redes</p>
-        </div>
-    </main>
-
-    <section id="sobre" class="sobre">
-        <h2 class="sobre-titulo">Sobre Mim</h2>
-        <div class="sobre-caixa">
-            <p class="sobre-paragrafo">
-                Olá, meu nome é John Cauan. Sou um Desenvolvedor Back-End em formação e Analista de Redes com 5 anos de experiência em telecomunicações. Atualmente estou ampliando minhas competências e aprofundando meu conhecimento técnico.
-
-                Tenho formação em cursos especializados, incluindo Análise de Redes, IPv6, Segurança da Informação entre outros... Estou sempre em busca de aprimorar minhas habilidades técnicas e interpessoais para oferecer soluções inovadoras e de alta qualidade no universo da tecnologia, seja desenvolvendo novos sistemas ou garantindo a manutenção eficiente de infraestruturas já existentes.            </p>
-        </div>
+    <section>
+      <h2>Sobre Mim</h2>
+      <p>
+        Estudante de Redes de Computadores com foco em Telecomunicações e sólido background em desenvolvimento back-end. Focado em entender problemas reais, pesquisar soluções eficientes e buscar a melhoria contínua em infraestrutura, redes e sistemas.
+      </p>
+      <div class="tags">
+        <span class="tag">Redes & Telecom</span>
+        <span class="tag">Infraestrutura</span>
+        <span class="tag">Automação</span>
+        <span class="tag">Resolução de Problemas</span>
+      </div>
     </section>
 
-    <section id="projetos" class="projetos">
-        <h2 class="projetos-titulo">Meus Projetos</h2>
-        <div class="projetos-caixa">
-            <!-- Card 1 -->
-            <div class="projetos-card">
-                <img src="./img/Car1.png" alt="Car1" class="projetos-imagem">
-                <div class="caixa-texto-projetos">
-                    <h3 class="info-projetos">Loja de carros</h3>
-                    <p class="paragrafo-projeto">Loja de Carros com design responsivo</p>
-                </div>
-            </div>
-    
-            <!-- Card 2 -->
-            <div class="projetos-card">
-                <img src="./img/avia.jpeg" alt="Projeto 1" class="projetos-imagem">
-                <div class="caixa-texto-projetos">
-                    <h3 class="info-projetos">Página de viagens</h3>
-                    <p class="paragrafo-projeto">Página de viagens para destinos atraentes e desejados do mundo</p>
-                </div>
-            </div>
-    
-            <!-- Card 3 -->
-            <div class="projetos-card">
-                <img src="./img/Xbox.png" alt="Projeto 1" class="projetos-imagem">
-                <div class="caixa-texto-projetos">
-                    <h3 class="info-projetos">Microsoft</h3>
-                    <p class="paragrafo-projeto">Página da Microsoft criada para demonstrar conhecimentos</p>
-                </div>
-            </div>
-        </div>
+    <section>
+      <h2>Projeto em Destaque</h2>
+      <p><strong>Gerenciador de Pagamento para Provedor</strong></p>
+      <p>
+        Solução web desenvolvida para otimizar o atendimento de suporte e eliminar erros em pagamentos via Pix Copia e Cola e boletos por parte de clientes em provedores de internet. Conta com carregamento dinâmico de QR Code e cópia rápida para a área de transferência.
+      </p>
+      <a href="https://github.com/JohnKa1/pagamento-provedor" target="_blank" class="btn">Ver Repositório do Projeto</a>
     </section>
-    
+  </div>
 
-    <section id="contatos" class="contatos">
-        <h2 class="contatos-titulo">Entre em contato</h2>
-        <form class="formulario-contato" id="formulario" onsubmit="enviarWhats(event)">
-            <div class="grupo-form">
-                <input type="text" placeholder="Nome" class="campo-form" id="nome">
-            </div>
-            <div class="grupo-form">
-                <textarea class="campo-form" placeholder="Digite sua Mensagem" rows="6" id="mensagem"></textarea>
-            </div>
-            
-            <button type="submit" class="botao-form">Enviar Whatsapp</button>
-
-        </form>
-    </section>
-
-    <script>
-
-        function enviarWhats(event) {
-            const nome = document.getElementById('nome').value;
-        const mensagem = document.getElementById('mensagem').value;
-        const telefone = '5571989021201';
-
-        const texto = Olá! me chamo ${nome}, ${mensagem}
-        const msgFormatada = encodeURIComponent(texto)
-
-        const url = https://wa.me/${telefone}?text=${msgFormatada}
-
-        window.open(url, '_blank')
-        }
-
-        
-    </script>
-
+  <footer>
+    <p>&copy; 2026 John Cauan. Todos os direitos reservados.</p>
+  </footer>
 
 </body>
 </html>
